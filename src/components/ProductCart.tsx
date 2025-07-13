@@ -64,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const message = `Hello RoteMed, I would like to order: ${quantity}x ${
       product.name
     } - $${(product.price * quantity).toFixed(2)}`;
-    const whatsappUrl = `https://wa.me/9607499567?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/9325638959?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
