@@ -62,7 +62,7 @@ const Cart: React.FC = () => {
       2
     )}\n\nPlease confirm availability and delivery details.`;
 
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/9607499567?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
