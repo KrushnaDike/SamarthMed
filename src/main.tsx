@@ -1,9 +1,10 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import { ChakraProvider, extendTheme } from "@chakra-ui/react"
-import { BrowserRouter } from "react-router-dom"
-import App from "./App"
-import { CartProvider } from "./context/CartContext"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { CartProvider } from "./context/CartContext";
+import "./index.css";
 
 const theme = extendTheme({
   colors: {
@@ -36,9 +37,51 @@ const theme = extendTheme({
     heading: "Inter, sans-serif",
     body: "Inter, sans-serif",
   },
-})
+  styles: {
+    global: {
+      body: {
+        bg: "gray.50",
+      },
+    },
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: "semibold",
+        borderRadius: "lg",
+      },
+      variants: {
+        solid: {
+          _hover: {
+            transform: "translateY(-2px)",
+            shadow: "lg",
+          },
+          transition: "all 0.3s ease",
+        },
+      },
+    },
+    Card: {
+      baseStyle: {
+        container: {
+          borderRadius: "xl",
+          overflow: "hidden",
+          transition: "all 0.3s ease",
+          _hover: {
+            transform: "translateY(-4px)",
+            shadow: "xl",
+          },
+        },
+      },
+    },
+  },
+});
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  throw new Error("Failed to find the root element");
+}
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <BrowserRouter>
@@ -47,5 +90,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </CartProvider>
       </BrowserRouter>
     </ChakraProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
